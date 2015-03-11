@@ -1,11 +1,16 @@
 Docker Backup to Amazon S3
 ===================
 
+### Credit: istepanov - Ilya Stepanov
+
+Forked from https://github.com/istepanov/docker-backup-to-s3/ to allow support for 
+latest s3cmd rather than relying on outdated ubuntu version (v1.1 on apt vs 1.52 at time of writing).
+
 Docker container that periodically backups files to Amazon S3 using [s3cmd sync](http://s3tools.org/s3cmd-sync) and cron.
 
 ### Usage
 
-	docker run -d [OPTIONS] istepanov/backup-to-s3
+	docker run -d [OPTIONS] robbydooo/backup-to-s3
 
 ### Parameters:
 
@@ -26,4 +31,4 @@ Docker container that periodically backups files to Amazon S3 using [s3cmd sync]
 		-e SECRET_KEY=fakeawssecret \
 		-e S3_PATH=s3://my-bucket/backup/ \
 		-v /home/user/data:/data:ro	 \	
-		istepanov/backup-to-s3
+		robbydooo/backup-to-s3
