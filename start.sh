@@ -10,8 +10,10 @@ echo "access_key=$ACCESS_KEY" >> /root/.s3cfg
 echo "secret_key=$SECRET_KEY" >> /root/.s3cfg
 
 if [[ "$1" == 'no-cron' ]]; then
-    exec s3cmd sync "$DATA_PATH" "$S3_PATH"
+    exec s3cmd sync --verbose "$DATA_PATH" "$S3_PATH"
+elif [[ "$1" == 'restore' ]]; then
+    exec s3cmd sync --verbose "$S3_PATH" "$DATA_PATH"
 else
-    echo "$CRON_SCHEDULE /usr/bin/s3cmd sync \"$DATA_PATH\" \"$S3_PATH\"" | crontab -
+    echo "$CRON_SCHEDULE s3cmd sync \"$DATA_PATH\" \"$S3_PATH\"" | crontab -
     exec cron -f
 fi
