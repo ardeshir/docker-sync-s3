@@ -10,7 +10,7 @@ Docker container that periodically backups files to Amazon S3 using [s3cmd sync]
 
 ### Usage
 
-	docker run -d [OPTIONS] robbydooo/backup-to-s3
+	docker run -d [OPTIONS] robbydooo/docker-backup-to-s3
 
 ### Parameters:
 
@@ -31,4 +31,4 @@ Docker container that periodically backups files to Amazon S3 using [s3cmd sync]
 		-e SECRET_KEY=fakeawssecret \
 		-e S3_PATH=s3://my-bucket/backup/ \
 		-v /home/user/data:/data:ro	 \	
-		robbydooo/backup-to-s3
+		robbydooo/docker-backup-to-s3
