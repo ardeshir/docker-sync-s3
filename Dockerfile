@@ -20,4 +20,4 @@ ADD s3cfg /root/.s3cfg
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
 
-CMD ["/start.sh"]
+ENTRYPOINT ["/start.sh"]
